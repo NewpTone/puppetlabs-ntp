@@ -126,4 +126,13 @@ class ntp($servers='UNSET',
       subscribe  => [ Package[$pkg_name], File[$config] ],
     }
   }
+    file { '/etc/localtime':
+      ensure     => present,
+      source     => 'puppet:///modules/ntp/Shanghai',
+      require    => Package[$pkg_name],
+  }
+
+
+
+
 }
